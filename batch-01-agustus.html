@@ -120,19 +120,6 @@
 
   <!-- brief panels injected here -->
 
-  <!-- STRATEGI -->
-  <section class="panel" id="pStrat">
-    <div class="inner">
-      <div class="mhead" style="margin-bottom:34px"><div class="k">CARA JALANIN</div><div class="t">Test &amp; Scale</div></div>
-      <div class="reco">
-        <div class="rc"><div class="n">01 · TEST</div><div class="t">Jalanin semua, matiin yang boncos</div><div class="d">Rilis kelima reel, pantau 3–7 hari. Yang CPR/engagement-nya jelek dimatiin cepat, jangan dipaksain.</div></div>
-        <div class="rc"><div class="n">02 · SCALE</div><div class="t">Gandakan pemenang lewat hook</div><div class="d">Begitu ada hook yang menang, bikin 3–5 versi baru dengan ganti 3 detik pertamanya aja — storyboard tetap. Ini cara scaling paling murah.</div></div>
-        <div class="rc"><div class="n">03 · ASET</div><div class="t">Siapin bukti nyata</div><div class="d">Pastiin screenshot review & angka 500+/4,9 real, dan footage/komentar buat reel proof udah siap sebelum syuting.</div></div>
-        <div class="rc"><div class="n">04 · KONSISTEN</div><div class="t">Jaga message &amp; style</div><div class="d">Kreator bebas produksi, tapi message + style tiap brief harus tetap — itu yang dijaga konsisten, sisanya fleksibel.</div></div>
-      </div>
-    </div>
-  </section>
-
 </div>
 
 <!-- lightbox -->
@@ -218,7 +205,7 @@ var BRIEFS=[
  ]}
 ];
 
-var strat=document.getElementById('pStrat');
+var deckEl=document.getElementById('deck');
 BRIEFS.forEach(function(b,i){
   var hooks='<div class="hb"><span>Visual</span><p>'+b.hook.visual+'</p></div>'+
             '<div class="hb"><span>On-screen text</span><p>'+b.hook.teks+'</p></div>'+
@@ -246,7 +233,7 @@ BRIEFS.forEach(function(b,i){
       '</div></div>'+
     '</div></div>'+
   '</section>';
-  strat.insertAdjacentHTML('beforebegin',html);
+  deckEl.insertAdjacentHTML('beforeend',html);
 });
 
 /* nav dots */
