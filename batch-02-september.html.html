@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GM Mandarin — Video Ad Briefs Batch September (v2)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--brand:#123A73;--deep:#0A2650;--azure:#1E86C9;--gold:#A9781A;--goldbg:#FBF4DE;--bg:#F4F8FC;--card:#FFFFFF;--ink:#39445A;--gray:#7B8798;--line:#E4EBF3;
+        --L3:#1D9E75;--L4:#378ADD;--ORG:#6B5CA5}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--brand)}
+  .deck{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+  .panel{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;padding:48px 72px;position:relative}
+  .inner{width:100%;max-width:1400px;margin:0 auto}
+  .split{display:flex;gap:60px;align-items:center}
+  .sinfo{width:400px;flex-shrink:0}
+  .sview{flex:1;min-width:0}
+  .snum{font-size:16px;font-weight:900;color:var(--brand);letter-spacing:.12em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .ltag{font-size:12px;font-weight:800;padding:3px 11px;border-radius:999px;background:color-mix(in srgb,var(--lc) 14%,#fff);color:var(--lc);letter-spacing:.02em}
+  .stitle{font-size:36px;font-weight:900;margin:12px 0 16px;line-height:1.1;letter-spacing:-.01em;color:var(--deep)}
+  .sdesc{font-size:18px;color:var(--ink);line-height:1.6}
+  .sdesc b{color:var(--brand);font-weight:700}
+  .metaline{font-size:15px;color:var(--gray);font-weight:600;margin-top:14px}
+  .metaline b{color:var(--deep)}
+  .coverref{position:relative;z-index:2;margin-top:26px;background:#F1D48A;border-radius:14px;padding:16px 22px;display:inline-flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;max-width:920px}
+  .coverref .rlab{width:100%;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--deep);margin-bottom:2px}
+  .coverref a{font-size:14px;color:var(--deep);font-weight:800;text-decoration:underline}
+  .coverref a:hover{color:var(--brand)}
+  .msg{margin-top:18px;background:var(--goldbg);border:1px solid #E9D9B4;border-radius:14px;padding:15px 18px;font-size:15px;line-height:1.55;color:var(--ink)}
+  .msg b{color:var(--gold);font-weight:800}
+  .briefcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 28px;box-shadow:0 16px 44px rgba(18,58,115,.09)}
+  .lab{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin:0 0 10px}
+  .lab.mt{margin-top:20px}
+  .hookg{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+  .hb{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 13px}
+  .hb span{font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:5px}
+  .hb p{font-size:14px;line-height:1.4;color:var(--deep);font-weight:600;margin:0}
+  .beat{padding:11px 0;border-top:1px solid var(--line)}
+  .beat:first-of-type{border-top:0;padding-top:2px}
+  .bt{font-size:11px;font-weight:800;color:var(--lc);background:color-mix(in srgb,var(--lc) 13%,#fff);border-radius:999px;padding:3px 11px;display:inline-block;margin-bottom:8px;text-transform:uppercase;letter-spacing:.03em}
+  .vo{font-size:15px;line-height:1.5;color:var(--ink);margin:0 0 5px;font-weight:500}
+  .vt{font-size:12.5px;line-height:1.5;color:var(--gray);margin:0}
+  .vt b{color:var(--deep);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.03em}
+  .cmp{display:flex;gap:10px;margin:8px 0 4px}
+  .cmpcol{flex:1;border-radius:10px;padding:10px 12px}
+  .cmpcol.bad{background:#FDEEEE;border:1px solid #F3C7C7}
+  .cmpcol.good{background:#EAF7F0;border:1px solid #BEE7D3}
+  .cmpcol .ic{font-size:13px;font-weight:900;letter-spacing:.03em}
+  .cmpcol.bad .ic{color:#C0392B}
+  .cmpcol.good .ic{color:#1D9E75}
+  .cmpcol p{font-size:13px;color:var(--ink);line-height:1.4;margin-top:5px;font-weight:600}
+  .ctaline{margin-top:20px;padding-top:16px;border-top:2px dashed var(--line);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .cta{display:inline-flex;align-items:center;gap:6px;background:var(--azure);color:#fff;font-size:15px;font-weight:800;padding:11px 20px;border-radius:11px}
+  .ctan{font-size:13.5px;color:var(--gray);flex:1;min-width:160px}
+  .noCta{display:inline-flex;align-items:center;gap:6px;background:#EEF1F6;color:var(--gray);font-size:13.5px;font-weight:700;padding:9px 16px;border-radius:11px;border:1px dashed #C9D3E0}
+  .cover{background:linear-gradient(125deg,#0A2650 0%,#123A73 48%,#1E86C9 100%);color:#fff;overflow:hidden}
+  .cover::after{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;background:#E0A93A;opacity:.9;transform:rotate(45deg)}
+  .cover::before{content:"";position:absolute;left:-120px;bottom:-150px;width:360px;height:360px;border:34px solid rgba(255,255,255,.08);border-radius:50%}
+  .ckick{font-size:18px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#F1D48A;position:relative;z-index:2}
+  .ctitle{font-size:64px;font-weight:900;line-height:1.08;margin:16px 0 12px;position:relative;z-index:2;letter-spacing:-.02em}
+  .cperiod{font-size:25px;font-weight:700;color:#DCEAF9;position:relative;z-index:2}
+  .cmeta{font-size:16px;color:#B9D2ED;margin-top:20px;position:relative;z-index:2;line-height:1.5}
+  .cbadges{position:relative;z-index:2;margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .cbadge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:9px 18px;font-size:14px;font-weight:600;color:#fff}
+  .cscroll{position:absolute;bottom:40px;left:72px;font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F1D48A;display:flex;align-items:center;gap:12px;z-index:2}
+  .cscroll .arw{width:24px;height:24px;border-right:3px solid #F1D48A;border-bottom:3px solid #F1D48A;transform:rotate(45deg);animation:bounce 1.5s infinite}
+  @keyframes bounce{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(5px,5px)}}
+  .dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:60}
+  .dot{width:12px;height:12px;border-radius:50%;background:#C9D8EA;border:none;cursor:pointer;transition:.2s;padding:0}
+  .dot:hover{background:#7FA6CE;transform:scale(1.2)}
+  .dot.on{background:var(--brand);transform:scale(1.35)}
+  @media(max-width:960px){
+    .panel{padding:30px 22px}
+    .split{flex-direction:column;gap:26px;align-items:stretch}
+    .sinfo{width:100%}
+    .ctitle{font-size:38px}
+    .stitle{font-size:28px}
+    .hookg{grid-template-columns:1fr}
+    .cmp{flex-direction:column}
+    .coverref{flex-direction:column;gap:8px}
+    .cscroll{left:22px}
+    .dots{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <section class="panel cover" id="p0">
+    <div class="inner">
+      <div class="ckick">GM Mandarin · Video Ad Briefs</div>
+      <div class="ctitle">Batch September — Kelas Anak (v2, enhanced)</div>
+      <div class="cperiod">5 video · 3 hardselling + 2 organik Instagram</div>
+      <div class="cmeta">9:16 Reels / TikTok · target ~25–40 dtk · lane anak saja (dewasa di-pause)</div>
+      <div class="cbadges">
+        <div class="cbadge">Konsep: A-3 Rapor Merah + A-1 Online vs Offline</div>
+        <div class="cbadge">Offer: trial 1 kelas gratis</div>
+        <div class="cbadge">Wajib sebut online via Zoom</div>
+        <div class="cbadge">Ada clip kelas anak yang bisa dipakai</div>
+      </div>
+      <div class="coverref">
+        <div class="rlab">Referensi format &amp; sound effect — berlaku buat semua 5 video di bawah</div>
+        <a href="https://www.instagram.com/p/Dbp_Gc_Pk3e/" target="_blank">Referensi A — micro-edukasi ❌/✅</a>
+        <a href="https://www.instagram.com/reel/DQMWfdRkVYk/" target="_blank">Referensi B — brand/program explainer</a>
+        <a href="https://www.instagram.com/reel/DYwA8GkRo0v/" target="_blank">Referensi C — campaign/ambassador</a>
+        <a href="https://www.instagram.com/p/DTsAaLpgajw/" target="_blank">Sound effect reference</a>
+      </div>
+    </div>
+    <div class="cscroll">Scroll <span class="arw"></span></div>
+  </section>
+
+  <section class="panel brief" id="pb0" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">HARDSELL · 01 <span class="ltag">A-3 · trigger</span></div>
+        <div class="stitle">Rapor keluar, kolom Mandarin bikin diem</div>
+        <div class="sdesc">Pain/trigger — momen rapor tengah semester keluar. <b>Enhancement:</b> nambah 1 beat kredibilitas (diadaptasi dari cara Referensi C menangkal skeptisisme "ini serius, bukan settingan") biar trial gratis kedengeran kredibel, bukan gimmick.</div>
+        <div class="metaline">Style: <b>Full talking</b> · meat-format: Education · Target ~28–35 dtk</div>
+        <div class="msg"><b>Message:</b> nilai yang kurang bukan tanda anak nggak bisa — ada sebabnya, dan bisa dibenahi. Trial-nya beneran gratis, bukan gimmick.</div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Hook · 3 detik pertama</div>
+        <div class="hookg">
+          <div class="hb"><span>Visual</span><p>Kreator to-camera, tenang, hangat — buat Papa Mama.</p></div>
+          <div class="hb"><span>On-screen text</span><p>"Rapor keluar minggu ini"</p></div>
+          <div class="hb"><span>Verbal</span><p>"Rapor keluar minggu ini. Ada satu kolom yang bikin Papa Mama diam sebentar."</p></div>
+        </div>
+        <div class="lab mt">Storyboard</div>
+        <div class="beat"><span class="bt">hook</span><p class="vo">"Rapor keluar minggu ini. Ada satu kolom yang bikin Papa Mama diam sebentar — kolom Mandarin."</p><p class="vt"><b>Visual</b> Kreator to-camera, tenang. &nbsp;·&nbsp; <b>Teks</b> Rapor keluar minggu ini</p></div>
+        <div class="beat"><span class="bt">kenapa</span><p class="vo">"Bukan karena anaknya nggak bisa. Di sekolah, semua anak rebutan giliran ngomong — ada yang nggak kebagian. Makanya di rapor, yang kelihatan cuma bagian 'belum bisa'-nya."</p><p class="vt"><b>Visual</b> Kreator menjelaskan, tenang. &nbsp;·&nbsp; <b>Teks</b> Bukan soal pintar — soal kesempatan</p></div>
+        <div class="beat"><span class="bt">solusi</span><p class="vo">"Di kelas online anak GM Mandarin, lewat Zoom, satu grup cuma maks 10 anak. Jadi tiap anak pasti dapet giliran ngomong tiap sesi — progresnya kelihatan lebih cepat."</p><p class="vt"><b>Visual</b> Kreator antusias, hangat. &nbsp;·&nbsp; <b>Teks</b> Online via Zoom · tiap anak dapet giliran</p></div>
+        <div class="beat"><span class="bt">tawaran <em style="font-weight:600;text-transform:none;color:var(--gray)">— baru</em></span><p class="vo">"Sekarang, Papa Mama bisa trial dulu gratis di kelas Anak GM Mandarin. Nggak perlu daftar dulu buat bisa coba — levelnya juga dicek dulu biar pas."</p><p class="vt"><b>Visual</b> Kreator meyakinkan, nada hangat. &nbsp;·&nbsp; <b>Teks</b> Trial gratis, level dicek dulu</p></div>
+        <div class="beat"><span class="bt">end card</span><p class="vo">"Sebelum daftar, coba dulu satu kelasnya. Tinggal chat, nanti kami bantu jadwalkan."</p><p class="vt"><b>Visual</b> Logo + tombol WA. &nbsp;·&nbsp; <b>Teks</b> Coba 1 kelas gratis — link di bio</p></div>
+        <div class="ctaline"><span class="cta">Coba 1 kelas gratis →</span><span class="ctan">Setelah klik: chat WA terbuka, admin tanya level anak dulu, baru jadwalkan trial.</span></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb1" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">HARDSELL · 02 <span class="ltag">A-3 · mekanisme + payoff</span></div>
+        <div class="stitle">Ada Mandarin di sekolah, di rumah nggak kepakai</div>
+        <div class="sdesc"><b>Enhancement:</b> mekanismenya sekarang ditunjukin lewat kartu ❌/✅ (device dari Referensi A yang scannable &lt;1 detik) — bukan ditiru contoh frasa Mandarin-nya, tapi format kartu-nya diadaptasi ke insight parenting kita sendiri. Ditutup payoff kebanggaan.</div>
+        <div class="metaline">Style: <b>Text overlay + kartu ❌/✅</b> · meat-format: Faceless · Target ~28–35 dtk</div>
+        <div class="msg"><b>Message:</b> anak butuh ruang buat beneran ngomong — bukan cuma dengerin — biar kebiasaannya kebawa ke rumah.</div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Hook · 3 detik pertama</div>
+        <div class="hookg">
+          <div class="hb"><span>Visual</span><p>Teks kinetik besar, latar bersih, tanpa wajah.</p></div>
+          <div class="hb"><span>On-screen text</span><p>"Belajar di sekolah, nggak kepakai di rumah"</p></div>
+          <div class="hb"><span>Verbal (VO)</span><p>"Udah belajar Mandarin di sekolah — eh, di rumah malah nggak kepakai."</p></div>
+        </div>
+        <div class="lab mt">Storyboard</div>
+        <div class="beat"><span class="bt">hook</span><p class="vo">"Udah belajar Mandarin di sekolah — eh, di rumah malah nggak kepakai."</p><p class="vt"><b>Visual</b> Teks kinetik besar. &nbsp;·&nbsp; <b>Teks</b> Belajar di sekolah, nggak kepakai di rumah</p></div>
+        <div class="beat"><span class="bt">masalah</span><p class="vo">"Kalau jarang dipakai, wajar nilainya susah naik. Bahasa itu nempelnya kalau dipakai — bukan cuma didengerin."</p><p class="vt"><b>Visual</b> Teks statement, layout minim. &nbsp;·&nbsp; <b>Teks</b> Nempel kalau dipakai, bukan cuma didengar</p></div>
+        <div class="beat"><span class="bt">mekanisme — kartu ❌/✅</span>
+          <p class="vo">"Bedanya gini: di sekolah, semua anak rebutan giliran ngomong — ada yang nggak kebagian. Di kelas online anak GM Mandarin, lewat Zoom, tiap anak pasti dapet giliran tiap sesi. Progresnya jadi lebih kelihatan cepat."</p>
+          <div class="cmp">
+            <div class="cmpcol bad"><div class="ic">✕ SEKOLAH</div><p>Rebutan giliran, ada yang nggak kebagian</p></div>
+            <div class="cmpcol good"><div class="ic">✓ KELAS KAMI</div><p>Semua pasti kebagian giliran, online via Zoom</p></div>
+          </div>
+          <p class="vt"><b>Visual</b> Kartu split kiri (merah)/kanan (hijau), swipe transition. &nbsp;·&nbsp; <b>Teks</b> Lihat kartu di atas</p>
+        </div>
+        <div class="beat"><span class="bt">payoff kebanggaan</span><p class="vo">"Pelan-pelan, kebiasaan itu kebawa ke rumah. Ada yang ceritanya, anaknya sekarang malah duluan ngajak ngomong Mandarin di rumah."</p><p class="vt"><b>Visual</b> Teks nada hangat/bangga. &nbsp;·&nbsp; <b>Teks</b> Kebiasaan yang kebawa ke rumah</p></div>
+        <div class="beat"><span class="bt">end card</span><p class="vo">"Mau lihat cocok atau nggak buat anak Papa Mama? Coba dulu satu kelasnya, gratis."</p><p class="vt"><b>Visual</b> Logo + tombol WA. &nbsp;·&nbsp; <b>Teks</b> Coba 1 kelas gratis — link di bio</p></div>
+        <div class="ctaline"><span class="cta">Coba 1 kelas gratis →</span><span class="ctan">Setelah klik: chat WA terbuka, admin bantu cek level & jadwal trial.</span></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb2" style="--lc:var(--L4)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">HARDSELL · 03 <span class="ltag">A-1 · filosofi + payoff</span></div>
+        <div class="stitle">Nyari les Mandarin susah? Ini yang lebih penting dari jarak &amp; harga</div>
+        <div class="sdesc"><b>Enhancement:</b> nambah 1 baris "filosofi" tegas (diadaptasi dari struktur Referensi B: hook → intro → filosofi pembeda → uraian) biar diferensiasinya kerasa sebagai pendirian, bukan cuma argumen jualan. Angka harga kompetitor tetap TIDAK disebut (belum diverifikasi).</div>
+        <div class="metaline">Style: <b>Comment overlay</b> · meat-format: Testimonial/Faceless · Target ~28–35 dtk</div>
+        <div class="msg"><b>Message:</b> yang bikin anak beneran bisa ngomong bukan jarak atau harga privat — tapi giliran ngomong, dan itu lebih gampang didapat di kelas kecil online.</div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Hook · 3 detik pertama</div>
+        <div class="hookg">
+          <div class="hb"><span>Visual</span><p>Comment bubble muncul, kreator siap jawab.</p></div>
+          <div class="hb"><span>On-screen text</span><p>"'Udah lama nyari, belum ketemu'"</p></div>
+          <div class="hb"><span>Verbal</span><p>"Ini keluhan yang sering kami dengar: udah lama nyari les Mandarin, tapi belum ketemu yang pas."</p></div>
+        </div>
+        <div class="lab mt">Storyboard</div>
+        <div class="beat"><span class="bt">hook</span><p class="vo">"Ini keluhan yang sering kami dengar: udah lama nyari les Mandarin, tapi belum ketemu yang pas."</p><p class="vt"><b>Visual</b> Comment bubble + kreator. &nbsp;·&nbsp; <b>Teks</b> 'Udah lama nyari, belum ketemu'</p></div>
+        <div class="beat"><span class="bt">filosofi</span><p class="vo">"Kami percaya satu hal: yang bikin anak beneran bisa Mandarin itu bukan jarak atau mahalnya les privat — tapi kesempatan buat ngomong. Di kelas yang isinya banyak anak, itu jadi rebutan. Di kelas kecil, semua kebagian — progresnya kelihatan lebih cepat."</p><p class="vt"><b>Visual</b> Kreator serius, tempo melambat. &nbsp;·&nbsp; <b>Teks</b> Bukan jarak atau harga — tapi kesempatan ngomong</p></div>
+        <div class="beat"><span class="bt">solusi</span><p class="vo">"Kelas online anak GM Mandarin lewat Zoom, satu grup maks 10 anak. Anak tetap kebagian ngomong tiap pertemuan, tanpa perlu diantar ke mana-mana."</p><p class="vt"><b>Visual</b> Kreator + ikon Zoom. &nbsp;·&nbsp; <b>Teks</b> Online via Zoom · grup maks 10</p></div>
+        <div class="beat"><span class="bt">end card · payoff</span><p class="vo">"Salah satu Mama cerita, anaknya sekarang malah yang duluan ngajarin dia kata-kata Mandarin di rumah. Mau coba juga? Kelas pertamanya gratis."</p><p class="vt"><b>Visual</b> Logo + tombol WA. &nbsp;·&nbsp; <b>Teks</b> Coba 1 kelas gratis — link di bio</p></div>
+        <div class="ctaline"><span class="cta">Coba 1 kelas gratis →</span><span class="ctan">Setelah klik: chat WA terbuka, admin bantu cek level & jadwal trial.</span></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb3" style="--lc:var(--ORG)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">ORGANIK IG · 04 <span class="ltag">P2 · bongkar keyakinan</span></div>
+        <div class="stitle">Anak diem pas ditanya Mandarin — bukan soal pinter</div>
+        <div class="sdesc"><b>Direvisi:</b> balik ke creator full-talking dengan scene cutaway (bukan kartu ❌/✅) — kreator tetap yang mimpin video, diselingi scene ilustratif biar nggak monoton talking-head doang. Nol CTA jualan.</div>
+        <div class="metaline">Style: <b>Full talking + scene cutaway</b> · meat-format: Education/Story · Target ~28–35 dtk</div>
+        <div class="msg"><b>Message:</b> anak diam bukan berarti nggak bisa — dia cuma kurang kesempatan buat ngomong, dan itu bisa dilatih dari rumah lewat hal kecil.</div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Hook · 3 detik pertama</div>
+        <div class="hookg">
+          <div class="hb"><span>Visual</span><p>Kreator to-camera, santai, ngobrol — bukan gaya jualan.</p></div>
+          <div class="hb"><span>On-screen text</span><p>"Di rumah cerewet, pas Mandarin diem"</p></div>
+          <div class="hb"><span>Verbal</span><p>"Anak Papa Mama diem tiap ditanya soal Mandarin di sekolah? Padahal di rumah cerewet banget?"</p></div>
+        </div>
+        <div class="lab mt">Storyboard</div>
+        <div class="beat"><span class="bt">hook — kreator</span><p class="vo">"Anak Papa Mama diem tiap ditanya soal Mandarin di sekolah? Padahal di rumah cerewet banget?"</p><p class="vt"><b>Visual</b> Kreator to-camera, santai. &nbsp;·&nbsp; <b>Teks</b> Di rumah cerewet, pas Mandarin diem</p></div>
+        <div class="beat"><span class="bt">scene — ilustrasi</span><p class="vo">(tanpa dialog, VO kreator lanjut dari luar frame)</p><p class="vt"><b>Visual</b> Cut ke scene: anak di kelas rame, ragu-ragu angkat tangan, keburu ditunjuk anak lain. &nbsp;·&nbsp; <b>Teks</b> Semua rebutan giliran ngomong</p></div>
+        <div class="beat"><span class="bt">kenapa — kreator</span><p class="vo">"Di kelas yang isinya banyak anak, semua rebutan giliran ngomong. Ada yang nggak kebagian sama sekali. Bukan karena dia nggak bisa — dia cuma kurang kesempatan."</p><p class="vt"><b>Visual</b> Balik ke kreator, jelasin santai. &nbsp;·&nbsp; <b>Teks</b> Bukan nggak bisa — kurang kesempatan</p></div>
+        <div class="beat"><span class="bt">scene — di rumah</span><p class="vo">(VO kreator lanjut dari luar frame)</p><p class="vt"><b>Visual</b> Cut ke scene: ortu &amp; anak ngobrol santai di meja makan/ruang tamu. &nbsp;·&nbsp; <b>Teks</b> Bisa dilatih dari rumah</p></div>
+        <div class="beat"><span class="bt">tip — kreator</span><p class="vo">"Coba deh minggu ini: pas lagi ngobrol biasa, selipin satu kata Mandarin yang udah dia tahu. Kalau salah, nggak usah dikoreksi keras — ulang aja yang bener, terus lanjut ngobrol."</p><p class="vt"><b>Visual</b> Kreator kasih tips, hangat. &nbsp;·&nbsp; <b>Teks</b> Selipin 1 kata pas ngobrol biasa</p></div>
+        <div class="beat"><span class="bt">lempar bola — kreator</span><p class="vo">"Papa Mama, anaknya lebih berani ngomong ke orang rumah atau ke orang luar? Cerita di komen, yuk."</p><p class="vt"><b>Visual</b> Kreator senyum, ngajak komen. &nbsp;·&nbsp; <b>Teks</b> Cerita di komen ya</p></div>
+        <div class="ctaline"><span class="noCta">Nol CTA — organik, bukan kanal lead</span><span class="ctan">Scene ilustrasi bisa direkam ringan (bukan clip kelas GM Mandarin) — cukup jadi visual pendukung, bukan pusat perhatian.</span></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb4" style="--lc:var(--ORG)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">ORGANIK IG · 05 <span class="ltag">P3 · intip metode</span></div>
+        <div class="stitle">Ini yang bikin anak nggak minta "udahan dulu"</div>
+        <div class="sdesc"><b>Direvisi:</b> balik ke creator full-talking dengan scene cutaway ke clip kelas anak yang udah ada (bukan kartu ❌/✅ atau screen-recording doang) — kreator yang mimpin cerita, clip kelas jadi bukti pendukung di tengah.</div>
+        <div class="metaline">Style: <b>Full talking + scene cutaway (clip kelas)</b> · meat-format: Education/Demonstration · Target ~28–35 dtk</div>
+        <div class="msg"><b>Message:</b> kelasnya beneran dirancang biar anak aktif, bukan cuma mindahin papan tulis ke layar — dan itu kelihatan dari kelasnya sendiri, bukan klaim.</div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Hook · 3 detik pertama</div>
+        <div class="hookg">
+          <div class="hb"><span>Visual</span><p>Kreator to-camera, santai tapi meyakinkan.</p></div>
+          <div class="hb"><span>On-screen text</span><p>"Bukan cuma mindahin papan tulis ke layar"</p></div>
+          <div class="hb"><span>Verbal</span><p>"Ini kelas online yang bukan cuma mindahin papan tulis ke layar."</p></div>
+        </div>
+        <div class="lab mt">Storyboard</div>
+        <div class="beat"><span class="bt">hook — kreator</span><p class="vo">"Ini kelas online yang bukan cuma mindahin papan tulis ke layar."</p><p class="vt"><b>Visual</b> Kreator to-camera. &nbsp;·&nbsp; <b>Teks</b> Bukan cuma mindahin papan tulis ke layar</p></div>
+        <div class="beat"><span class="bt">kenapa beda — kreator</span><p class="vo">"Di kelas online biasa, guru ngomong, anak nonton. Di kelas online anak GM Mandarin, semua anak dapet giliran nebak kata sambil main. Jadi bukan cuma yang berani aja yang aktif."</p><p class="vt"><b>Visual</b> Kreator jelasin, antusias. &nbsp;·&nbsp; <b>Teks</b> Semua anak dapet giliran, bukan cuma yang berani</p></div>
+        <div class="beat"><span class="bt">scene — clip kelas</span><p class="vo">(VO kreator lanjut dari luar frame, atau jeda musik sebentar)</p><p class="vt"><b>Visual</b> Cut ke clip kelas anak yang udah ada — sesi game/nebak kata, ekspresi anak hidup &amp; seru. &nbsp;·&nbsp; <b>Teks</b> Cuplikan kelas asli</p></div>
+        <div class="beat"><span class="bt">kenapa penting — kreator</span><p class="vo">"Anak lebih nempel sama kata yang dia tebak sendiri, dibanding cuma dengerin. Karena semua kebagian giliran, progresnya kelihatan lebih cepat."</p><p class="vt"><b>Visual</b> Balik ke kreator, meyakinkan. &nbsp;·&nbsp; <b>Teks</b> Semua kebagian giliran = progres lebih cepat</p></div>
+        <div class="beat"><span class="bt">lempar bola — kreator</span><p class="vo">"Kalau di rumah, anaknya lebih gampang inget lewat gambar, atau lewat lagu? Cerita di komen."</p><p class="vt"><b>Visual</b> Kreator senyum, ngajak komen. &nbsp;·&nbsp; <b>Teks</b> Cerita di komen ya</p></div>
+        <div class="ctaline"><span class="noCta">Nol CTA — organik, bukan kanal lead</span><span class="ctan">Pilih clip kelas yang paling natural buat scene cutaway — hindari yang kelihatan disetting biar tetap kerasa asli.</span></div>
+      </div></div>
+    </div></div>
+  </section>
+
+</div>
+
+<div class="dots" id="dots"></div>
+
+<script>
+(function(){
+  var panels=document.querySelectorAll('.panel');var dotsEl=document.getElementById('dots');var dots=[];
+  panels.forEach(function(p,i){var b=document.createElement('button');b.className='dot'+(i===0?' on':'');b.title=p.id;
+    b.addEventListener('click',function(){p.scrollIntoView({behavior:'smooth'});});dotsEl.appendChild(b);dots.push(b);});
+  var ob=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){var idx=[].indexOf.call(panels,x.target);dots.forEach(function(d,i){d.classList.toggle('on',i===idx);});}})},{root:document.getElementById('deck'),threshold:.5});
+  panels.forEach(function(p){ob.observe(p);});
+})();
+</script>
+
+</body></html>
