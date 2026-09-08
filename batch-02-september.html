@@ -9,8 +9,8 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--brand)}
-  .deck{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth}
-  .panel{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;padding:48px 72px;position:relative}
+  .deck{height:100vh;overflow-y:scroll;scroll-behavior:smooth}
+  .panel{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:48px 72px;position:relative}
   .inner{width:100%;max-width:1400px;margin:0 auto}
   .split{display:flex;gap:60px;align-items:center}
   .sinfo{width:400px;flex-shrink:0}
@@ -73,13 +73,14 @@
     .panel{padding:30px 22px}
     .split{flex-direction:column;gap:26px;align-items:stretch}
     .sinfo{width:100%}
-    .ctitle{font-size:38px}
+    .ctitle{font-size:29px}
     .stitle{font-size:28px}
     .hookg{grid-template-columns:1fr}
     .cmp{flex-direction:column}
     .coverref{flex-direction:column;gap:8px}
     .cscroll{left:22px}
     .dots{display:none}
+    .cover::after,.cover::before{display:none}
   }
 </style>
 </head>
@@ -89,7 +90,7 @@
   <section class="panel cover" id="p0">
     <div class="inner">
       <div class="ckick">GM Mandarin · Video Ad Briefs</div>
-      <div class="ctitle">Batch September — Kelas Anak (v2, enhanced)</div>
+      <div class="ctitle">Batch September — Kelas Anak</div>
       <div class="cperiod">5 video · 3 hardselling + 2 organik Instagram</div>
       <div class="cmeta">9:16 Reels / TikTok · target ~25–40 dtk · lane anak saja (dewasa di-pause)</div>
       <div class="cbadges">
