@@ -37,9 +37,8 @@
   .batch.soon{opacity:.72;border-style:dashed}
   .batch.soon .bnum{background:#E4EBF3;color:var(--gray)}
   .soonbadge{flex-shrink:0;font-size:13px;font-weight:700;color:var(--gray);background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:11px 20px}
-  .foot{margin-top:34px;font-size:13px;color:var(--gray);line-height:1.6;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
-  .foot b{color:var(--deep)}
-  .foot code{font-family:ui-monospace,Menlo,monospace;background:var(--bg);border:1px solid var(--line);padding:1px 6px;border-radius:5px;color:var(--azure);font-size:12px}
+  .batch.checking .soonbadge{animation:pulse 1.3s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
   @media(max-width:620px){
     body{padding:36px 16px 56px}
     h1{font-size:30px}
@@ -53,39 +52,117 @@
   <div class="brand"><span class="mark"></span><span><span class="gm">gm</span><span class="md">mandarin</span></span></div>
   <h1>Video Ad Briefs</h1>
   <p class="lead">Arsip batch brief konten iklan video GM Mandarin. Tiap batch = satu set brief siap kasih ke kreator. Pilih batch di bawah.</p>
-
   <div class="divider"></div>
   <div class="sec">Daftar Batch</div>
-  <div class="list">
-
-    <!-- ====== BATCH AKTIF ====== -->
-    <div class="batch live">
-      <div class="bnum"><b>01</b><small>AGT</small></div>
-      <div class="bbody">
-        <div class="btitle">Batch 1 · Agustus 2026</div>
-        <div class="bmeta">5 video · 2 kelas dewasa + 3 kelas anak · 9:16 · mode Lean</div>
-        <div class="btags"><span class="bt blue">Layer warm L3/L4/L5</span><span class="bt">Offer: kelas coba gratis</span></div>
-      </div>
-      <a class="go" href="batch-01-agustus.html">Buka deck →</a>
-    </div>
-
-    <!-- ====== CONTOH BATCH BERIKUTNYA (aktifin bulan depan) ======
-         Cara nambah batch baru:
-         1. Upload file deck baru (mis. batch-02-september.html) ke repo ini.
-         2. Copy blok .batch.live di atas, ganti nomor/bulan/judul/meta, dan href-nya ke file baru.
-         3. Hapus blok .batch.soon di bawah kalau sudah ada isinya. -->
-    <div class="batch soon">
-      <div class="bnum"><b>02</b><small>SEP</small></div>
-      <div class="bbody">
-        <div class="btitle">Batch 2 · September 2026</div>
-        <div class="bmeta">Menyusul — 5 video batch berikutnya</div>
-      </div>
-      <span class="soonbadge">Segera</span>
-    </div>
-
+  <div class="list" id="list">
+    <!-- diisi otomatis oleh script di bawah -->
   </div>
 
-  <!-- Nambah batch: upload file deck baru (mis. batch-02-september.html) ke repo, lalu duplikat satu blok .batch di atas & ganti judul + href-nya. -->
 </div>
+
+<script>
+  // ====== DAFTAR BATCH ======
+  // Tambah batch baru = copy 1 objek di bawah, isi num/month/title/meta/tags/file.
+  // "file" WAJIB sama persis dengan nama file deck yang bakal di-upload ke repo ini.
+  // Status live/soon TIDAK perlu diisi manual — otomatis dicek oleh script di bawah.
+  const BATCHES = [
+    {
+      num: '01', month: 'AGT',
+      title: 'Batch 1 · Agustus 2026',
+      meta: '5 video · 2 kelas dewasa + 3 kelas anak · 9:16 · mode Lean',
+      tags: [
+        { label: 'Layer warm L3/L4/L5', cls: 'blue' },
+        { label: 'Offer: kelas coba gratis' }
+      ],
+      file: 'batch-01-agustus.html'
+    },
+    {
+      num: '02', month: 'SEP',
+      title: 'Batch 2 · September 2026',
+      meta: '5 video · 3 hardsell + 2 organik IG · 9:16',
+      tags: [
+        { label: 'Konsep A-3 + A-1' },
+        { label: 'Offer: trial gratis', cls: 'blue' }
+      ],
+      file: 'batch-02-september.html'
+    },
+    {
+      num: '03', month: 'OKT',
+      title: 'Batch 3 · Oktober 2026',
+      meta: 'Menyusul — detail brief batch Oktober',
+      tags: [],
+      file: 'batch-03-oktober.html'
+    }
+    // Tambah baris berikutnya di sini kalau mau siapin slot November, dst.
+  ];
+
+  // Cek apakah sebuah file ada di repo ini (HEAD dulu, fallback GET kalau host-nya nolak HEAD).
+  async function fileExists(url) {
+    try {
+      const head = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+      if (head.ok) return true;
+      if (head.status === 405 || head.status === 501) {
+        const get = await fetch(url, { method: 'GET', cache: 'no-store' });
+        return get.ok;
+      }
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function tagsHtml(tags) {
+    return (tags || []).map(function (t) {
+      return '<span class="bt' + (t.cls ? ' ' + t.cls : '') + '">' + t.label + '</span>';
+    }).join('');
+  }
+
+  function renderChecking(b) {
+    return '' +
+      '<div class="batch soon checking">' +
+        '<div class="bnum"><b>' + b.num + '</b><small>' + b.month + '</small></div>' +
+        '<div class="bbody">' +
+          '<div class="btitle">' + b.title + '</div>' +
+          '<div class="bmeta">Memeriksa apakah file sudah di-upload…</div>' +
+        '</div>' +
+        '<span class="soonbadge">Memeriksa…</span>' +
+      '</div>';
+  }
+
+  function renderRow(b, exists) {
+    if (exists) {
+      var tg = tagsHtml(b.tags);
+      return '' +
+        '<div class="batch live">' +
+          '<div class="bnum"><b>' + b.num + '</b><small>' + b.month + '</small></div>' +
+          '<div class="bbody">' +
+            '<div class="btitle">' + b.title + '</div>' +
+            '<div class="bmeta">' + b.meta + '</div>' +
+            (tg ? '<div class="btags">' + tg + '</div>' : '') +
+          '</div>' +
+          '<a class="go" href="' + b.file + '">Buka deck →</a>' +
+        '</div>';
+    }
+    return '' +
+      '<div class="batch soon">' +
+        '<div class="bnum"><b>' + b.num + '</b><small>' + b.month + '</small></div>' +
+        '<div class="bbody">' +
+          '<div class="btitle">' + b.title + '</div>' +
+          '<div class="bmeta">Menyusul — file belum di-upload</div>' +
+        '</div>' +
+        '<span class="soonbadge">Segera</span>' +
+      '</div>';
+  }
+
+  (async function init() {
+    var list = document.getElementById('list');
+    list.innerHTML = BATCHES.map(renderChecking).join('');
+    var rows = list.querySelectorAll('.batch');
+    var results = await Promise.all(BATCHES.map(function (b) { return fileExists(b.file); }));
+    BATCHES.forEach(function (b, i) {
+      rows[i].outerHTML = renderRow(b, results[i]);
+    });
+  })();
+</script>
 </body>
 </html>
