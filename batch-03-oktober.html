@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GM Mandarin — Video Ad Briefs Batch Oktober</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--brand:#123A73;--deep:#0A2650;--azure:#1E86C9;--gold:#A9781A;--goldbg:#FBF4DE;--bg:#F4F8FC;--card:#FFFFFF;--ink:#39445A;--gray:#7B8798;--line:#E4EBF3;
+        --L3:#1D9E75;--L4:#378ADD;--ORG:#6B5CA5}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--brand)}
+  .deck{height:100vh;overflow-y:scroll;scroll-behavior:smooth}
+  .panel{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:48px 72px;position:relative}
+  .inner{width:100%;max-width:1400px;margin:0 auto}
+  .split{display:flex;gap:60px;align-items:center}
+  .sinfo{width:400px;flex-shrink:0}
+  .sview{flex:1;min-width:0}
+  .snum{font-size:16px;font-weight:900;color:var(--brand);letter-spacing:.12em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .ltag{font-size:12px;font-weight:800;padding:3px 11px;border-radius:999px;background:color-mix(in srgb,var(--lc) 14%,#fff);color:var(--lc);letter-spacing:.02em}
+  .stitle{font-size:36px;font-weight:900;margin:12px 0 16px;line-height:1.1;letter-spacing:-.01em;color:var(--deep)}
+  .sdesc{font-size:18px;color:var(--ink);line-height:1.6}
+  .sdesc b{color:var(--brand);font-weight:700}
+  .metaline{font-size:15px;color:var(--gray);font-weight:600;margin-top:14px}
+  .metaline b{color:var(--deep)}
+  .coverref{position:relative;z-index:2;margin-top:26px;background:#F1D48A;border-radius:14px;padding:16px 22px;display:inline-flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;max-width:920px}
+  .coverref .rlab{width:100%;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--deep);margin-bottom:2px}
+  .coverref a{font-size:14px;color:var(--deep);font-weight:800;text-decoration:underline}
+  .coverref a:hover{color:var(--brand)}
+  .msg{margin-top:18px;background:var(--goldbg);border:1px solid #E9D9B4;border-radius:14px;padding:15px 18px;font-size:15px;line-height:1.55;color:var(--ink)}
+  .msg b{color:var(--gold);font-weight:800}
+  .briefcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 28px;box-shadow:0 16px 44px rgba(18,58,115,.09)}
+  .lab{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin:0 0 10px}
+  .lab.mt{margin-top:20px}
+  .hookg{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+  .hb{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 13px}
+  .hb span{font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:5px}
+  .hb p{font-size:14px;line-height:1.4;color:var(--deep);font-weight:600;margin:0}
+  .beat{padding:11px 0;border-top:1px solid var(--line)}
+  .beat:first-of-type{border-top:0;padding-top:2px}
+  .bt{font-size:11px;font-weight:800;color:var(--lc);background:color-mix(in srgb,var(--lc) 13%,#fff);border-radius:999px;padding:3px 11px;display:inline-block;margin-bottom:8px;text-transform:uppercase;letter-spacing:.03em}
+  .vo{font-size:15px;line-height:1.5;color:var(--ink);margin:0 0 5px;font-weight:500}
+  .vt{font-size:12.5px;line-height:1.5;color:var(--gray);margin:0}
+  .vt b{color:var(--deep);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.03em}
+  .cmp{display:flex;gap:10px;margin:8px 0 4px}
+  .cmpcol{flex:1;border-radius:10px;padding:10px 12px}
+  .cmpcol.bad{background:#FDEEEE;border:1px solid #F3C7C7}
+  .cmpcol.good{background:#EAF7F0;border:1px solid #BEE7D3}
+  .cmpcol .ic{font-size:13px;font-weight:900;letter-spacing:.03em}
+  .cmpcol.bad .ic{color:#C0392B}
+  .cmpcol.good .ic{color:#1D9E75}
+  .cmpcol p{font-size:13px;color:var(--ink);line-height:1.4;margin-top:5px;font-weight:600}
+  .ctaline{margin-top:20px;padding-top:16px;border-top:2px dashed var(--line);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .cta{display:inline-flex;align-items:center;gap:6px;background:var(--azure);color:#fff;font-size:15px;font-weight:800;padding:11px 20px;border-radius:11px}
+  .ctan{font-size:13.5px;color:var(--gray);flex:1;min-width:160px}
+  .noCta{display:inline-flex;align-items:center;gap:6px;background:#EEF1F6;color:var(--gray);font-size:13.5px;font-weight:700;padding:9px 16px;border-radius:11px;border:1px dashed #C9D3E0}
+  .cover{background:linear-gradient(125deg,#0A2650 0%,#123A73 48%,#1E86C9 100%);color:#fff;overflow:hidden}
+  .cover::after{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;background:#E0A93A;opacity:.9;transform:rotate(45deg)}
+  .cover::before{content:"";position:absolute;left:-120px;bottom:-150px;width:360px;height:360px;border:34px solid rgba(255,255,255,.08);border-radius:50%}
+  .ckick{font-size:18px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#F1D48A;position:relative;z-index:2}
+  .ctitle{font-size:64px;font-weight:900;line-height:1.08;margin:16px 0 12px;position:relative;z-index:2;letter-spacing:-.02em}
+  .cperiod{font-size:25px;font-weight:700;color:#DCEAF9;position:relative;z-index:2}
+  .cmeta{font-size:16px;color:#B9D2ED;margin-top:20px;position:relative;z-index:2;line-height:1.5}
+  .cbadges{position:relative;z-index:2;margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .cbadge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:9px 18px;font-size:14px;font-weight:600;color:#fff}
+  .cscroll{position:absolute;bottom:40px;left:72px;font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F1D48A;display:flex;align-items:center;gap:12px;z-index:2}
+  .cscroll .arw{width:24px;height:24px;border-right:3px solid #F1D48A;border-bottom:3px solid #F1D48A;transform:rotate(45deg);animation:bounce 1.5s infinite}
+  @keyframes bounce{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(5px,5px)}}
+  .dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:60}
+  .dot{width:12px;height:12px;border-radius:50%;background:#C9D8EA;border:none;cursor:pointer;transition:.2s;padding:0}
+  .dot:hover{background:#7FA6CE;transform:scale(1.2)}
+  .dot.on{background:var(--brand);transform:scale(1.35)}
+  @media(max-width:960px){
+    .panel{padding:30px 22px}
+    .split{flex-direction:column;gap:26px;align-items:stretch}
+    .sinfo{width:100%}
+    .ctitle{font-size:29px}
+    .stitle{font-size:22px}
+    .sdesc{font-size:15px}
+    .hookg{grid-template-columns:1fr}
+    .cmp{flex-direction:column}
+    .coverref{flex-direction:column;gap:8px}
+    .cscroll{left:22px}
+    .dots{display:none}
+    .cover::after,.cover::before{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <section class="panel cover" id="p0">
+    <div class="inner">
+      <div class="ckick">GM Mandarin · Video Ad Briefs</div>
+      <div class="ctitle">Batch Oktober — Kelas Anak · Peluang Masa Depan</div>
+      <div class="cperiod">5 video · semua hardsell buat iklan (Form) · mode Lean</div>
+      <div class="cmeta">9:16 Reels / TikTok · target ~30–40 dtk · talent sama dengan batch September · sapaan "papi mami"</div>
+      <div class="cbadges">
+        <div class="cbadge">Konsep: Peluang masa depan + Pendidikan lanjut</div>
+        <div class="cbadge">Offer: trial 1 sesi gratis</div>
+        <div class="cbadge">WAJIB minimal 1 bukti nyata per video (klip murid / rekaman kelas / chat ortu asli)</div>
+        <div class="cbadge">Logo &amp; sebutan: GM Mandarin — DILARANG "Guang Ming"</div>
+        <div class="cbadge">Jangan jadiin "maks 10 anak" pesan utama — kompetitor udah maks 3</div>
+      </div>
+      <div class="coverref">
+        <div class="rlab">Referensi format</div>
+        <p style="margin:0;font-size:14px;font-weight:700;color:var(--deep)">Ada di tiap skrip (box kuning di kiri): link video referensi + apa yang ditiru + apa yang harus beda.</p>
+      </div>
+    </div>
+    <div class="cscroll">Scroll <span class="arw"></span></div>
+  </section>
+
+  <section class="panel brief" id="pb0" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">HARDSELL · 01 <span class="ltag">P2 × A1 · skill langka jadi wajib</span></div>
+        <div class="stitle">Dulu langka. Sekarang mulai jadi syarat.</div>
+        <div class="sdesc">Kreator to-camera diselingi bukti: rekaman layar portal lowongan + rekaman kelas Zoom GM Mandarin yang asli. Versi aspirasi dari format Aixue yang jalan setahun — tanpa nakut-nakutin.</div>
+        <div class="metaline">Style: <b>Talking + B-roll (layar lowongan + rekaman kelas asli)</b> · meat-format: Education · Target ~30–40 dtk · File: <b>__OKT_VID_L3_DuluLangkaSekarangSyarat</b></div>
+        <div class="msg"><b>Message:</b> Mandarin bukan lagi skill bonus. Anak yang mulai dari SD udah nyaman duluan pas kesempatannya datang.</div>
+        <div class="coverref" style="margin-top:16px;display:flex"><div class="rlab">Referensi format</div><a href="https://www.facebook.com/ads/library/?id=2113080742555871" target="_blank">Aixue — guru to-camera + rekaman kelas (iklan jalan ±1 tahun) ↗</a><p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)"><b>Tiru:</b> Struktur: talent ngomong ke kamera → potong ke rekaman layar kelas online asli → ajakan trial. Tempo cepat, ±34 dtk.</p><p style="margin:2px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)"><b>Bedanya:</b> Nadanya aspirasi, jangan nakut-nakutin ("China kuasai dunia" jangan dipakai). Tambah bukti layar portal lowongan.</p></div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Hook · 3 detik pertama</div>
+        <div class="hookg">
+          <div class="hb"><span>Visual</span><p>Kreator to-camera pegang iPad, layarnya nunjukin daftar lowongan kerja.</p></div>
+          <div class="hb"><span>On-screen text</span><p>"Dulu langka. Sekarang dicari."</p></div>
+          <div class="hb"><span>Verbal</span><p>"Bahasa Mandarin dulu dianggap skill langka. Sekarang mulai jadi syarat kerja."</p></div>
+        </div>
+        <div class="lab mt">Storyboard</div>
+        <div class="beat"><span class="bt">hook — kreator</span><p class="vo">"Bahasa Mandarin dulu dianggap skill langka. Sekarang mulai jadi syarat kerja."</p><p class="vt"><b>Visual</b> Kreator to-camera, iPad di tangan. &nbsp;·&nbsp; <b>Teks</b> Dulu langka. Sekarang dicari.</p></div>
+        <div class="beat"><span class="bt">bukti — layar lowongan</span><p class="vo">"Coba cek sendiri di portal lowongan: ribuan lowongan di Indonesia sekarang nyantumin Mandarin. Dari logistik, manufaktur, sampai perdagangan."</p><p class="vt"><b>Visual</b> Rekaman layar scroll portal lowongan, nama perusahaan diblur. &nbsp;·&nbsp; <b>Teks</b> Ribuan lowongan minta Mandarin [angka Oktober]</p></div>
+        <div class="beat"><span class="bt">jembatan — kreator</span><p class="vo">"Anak SD sekarang, sepuluh tahun lagi masuk ke dunia kerja itu. Yang mulai dari sekarang, nanti udah nyaman. Bukan baru belajar pas kepepet."</p><p class="vt"><b>Visual</b> Kreator to-camera, nada santai. &nbsp;·&nbsp; <b>Teks</b> 10 tahun lagi, mereka yang masuk dunia kerja</p></div>
+        <div class="beat"><span class="bt">bukti — rekaman kelas</span><p class="vo">"Di kelas online anak GM Mandarin, anak mulai dari nol bareng guru bersertifikat HSK 5. Dan tiap sesi, dia beneran ngomong."</p><p class="vt"><b>Visual</b> Cut ke rekaman kelas Zoom asli: murid jawab pertanyaan guru. &nbsp;·&nbsp; <b>Teks</b> Pemula dari nol · guru HSK 5</p></div>
+        <div class="beat"><span class="bt">end card</span><p class="vo">"Mau lihat dulu kelasnya kayak gimana? Coba satu sesi, gratis."</p><p class="vt"><b>Visual</b> Logo GM Mandarin + tombol. &nbsp;·&nbsp; <b>Teks</b> Coba 1 sesi gratis</p></div>
+        <div class="ctaline"><span class="cta">Coba 1 sesi gratis →</span><span class="ctan">Setelah klik: form trial di LP kebuka (gmmandarin.id/kelas-anak-form), tim GM Mandarin hubungi via WA buat cek level &amp; jadwal trial.</span></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb1" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">HARDSELL · 02 <span class="ltag">P3 × A8 · pendidikan lanjut</span></div>
+        <div class="stitle">Kuliah ke luar negeri, bekalnya dari SD</div>
+        <div class="sdesc">POV kreator lagi lihat syarat kuliah kampus luar negeri, terus mundur ke titik awalnya: anak SD. Ditutup bukti kelas asli + kartu guru HSK 5. Angle yang baru didorong Aixue 3 versi sekaligus.</div>
+        <div class="metaline">Style: <b>Simple POV + rekaman kelas asli</b> · meat-format: Story · Target ~30–40 dtk · File: <b>__OKT_VID_L3_BekalKuliahDariSD</b></div>
+        <div class="msg"><b>Message:</b> Pilihan kuliah anak makin lebar kalau Mandarin udah dimulai dari SD, pelan-pelan, tanpa ngebut.</div>
+        <div class="coverref" style="margin-top:16px;display:flex"><div class="rlab">Referensi format</div><a href="https://www.facebook.com/ads/library/?id=1393021539580007" target="_blank">Aixue — angle kuliah ke China / HSK ↗</a><p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)"><b>Tiru:</b> Pembuka POV dilema kuliah ("Mandarinku udah cukup belum?") → bukti kelas → ajakan.</p><p style="margin:2px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)"><b>Bedanya:</b> Sudut pandang buat ortu anak SD, bukan anak SMA. Tanpa footage/nama kampus asli dan tanpa kode promo.</p></div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Hook · 3 detik pertama</div>
+        <div class="hookg">
+          <div class="hb"><span>Visual</span><p>POV: kreator scroll halaman "Syarat Pendaftaran" kampus luar negeri generik (tanpa nama/logo kampus asli).</p></div>
+          <div class="hb"><span>On-screen text</span><p>"Syarat kuliah: sertifikat HSK"</p></div>
+          <div class="hb"><span>Verbal</span><p>"Baru tahu, banyak kampus di China sama Taiwan minta sertifikat kemampuan Mandarin."</p></div>
+        </div>
+        <div class="lab mt">Storyboard</div>
+        <div class="beat"><span class="bt">hook — POV</span><p class="vo">"Baru tahu, banyak kampus di China sama Taiwan minta sertifikat kemampuan Mandarin."</p><p class="vt"><b>Visual</b> POV layar laptop, halaman syarat pendaftaran generik. &nbsp;·&nbsp; <b>Teks</b> Syarat kuliah: sertifikat HSK</p></div>
+        <div class="beat"><span class="bt">masalah — kreator</span><p class="vo">"Dan level yang diminta itu nggak bisa dikebut sebulan pas kelas 12."</p><p class="vt"><b>Visual</b> Kreator to-camera, ekspresi "waduh". &nbsp;·&nbsp; <b>Teks</b> Nggak bisa dikebut sebulan</p></div>
+        <div class="beat"><span class="bt">balik ke SD — bukti</span><p class="vo">"Makanya sekarang banyak ortu mulai dari SD. Pelan-pelan, santai, tanpa ngebut."</p><p class="vt"><b>Visual</b> Cut ke rekaman kelas Zoom asli: murid SD jawab guru. &nbsp;·&nbsp; <b>Teks</b> Mulainya dari SD</p></div>
+        <div class="beat"><span class="bt">proses — kartu guru</span><p class="vo">"Di GM Mandarin, anak mulai dari kelas pemula, dan guru-gurunya sendiri bersertifikat HSK 5. Jadi arahnya jelas dari awal."</p><p class="vt"><b>Visual</b> Kartu guru: foto Elisa, Wirya, Genoveva + label HSK 5. &nbsp;·&nbsp; <b>Teks</b> Guru bersertifikat HSK 5</p></div>
+        <div class="beat"><span class="bt">end card</span><p class="vo">"Mau mulai bekalnya dari sekarang? Coba satu sesi, gratis."</p><p class="vt"><b>Visual</b> Logo GM Mandarin + tombol. &nbsp;·&nbsp; <b>Teks</b> Coba 1 sesi gratis</p></div>
+        <div class="ctaline"><span class="cta">Coba 1 sesi gratis →</span><span class="ctan">Setelah klik: form trial di LP kebuka (gmmandarin.id/kelas-anak-form), tim GM Mandarin hubungi via WA buat cek level &amp; jadwal trial.</span></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb2" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">HARDSELL · 03 <span class="ltag">P2 × A5 · zaman ortu vs zaman anak</span></div>
+        <div class="stitle">Zaman papi mami SD vs zaman anak sekarang</div>
+        <div class="sdesc">Kreator cerita ulang pengalaman ortu murid (belum ada ortu yang mau direkam), dikuatin screenshot chat testimoni ortu asli + klip kelas. Turunan format cerita ortu Mandarin Huang.</div>
+        <div class="metaline">Style: <b>Full talking + screenshot chat ortu + klip kelas</b> · meat-format: Testimonial · Target ~30–40 dtk · File: <b>__OKT_VID_L3_ZamanPapiMamiSD</b></div>
+        <div class="msg"><b>Message:</b> Standar bekal anak udah geser. Yang dulu cukup, sekarang belum cukup — dan ortu lain udah mulai.</div>
+        <div class="coverref" style="margin-top:16px;display:flex"><div class="rlab">Referensi format</div><a href="https://www.facebook.com/ads/library/?id=1077787255013293" target="_blank">Mandarin Huang — cerita ortu "awalnya ragu" (4 iklan, kreatif sama) ↗</a><p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)"><b>Tiru:</b> Alur cerita: ragu → coba → anak suka → bekal masa depan. Tempo pelan, nada hangat, stiker teks emosi.</p><p style="margin:2px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)"><b>Bedanya:</b> Dibawain kreator (cerita ulang), bukan ortu. Buktinya screenshot chat ortu asli, nama &amp; nomor diblur.</p></div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Hook · 3 detik pertama</div>
+        <div class="hookg">
+          <div class="hb"><span>Visual</span><p>Split screen: kiri foto buku pelajaran jadul warna pudar, kanan klip anak di kelas Zoom GM Mandarin.</p></div>
+          <div class="hb"><span>On-screen text</span><p>"Zaman papi mami vs zaman anak"</p></div>
+          <div class="hb"><span>Verbal</span><p>"Zaman papi mami SD, les tambahan paling Inggris. Zaman anak sekarang, beda cerita."</p></div>
+        </div>
+        <div class="lab mt">Storyboard</div>
+        <div class="beat"><span class="bt">hook — split</span><p class="vo">"Zaman papi mami SD, les tambahan paling Inggris. Zaman anak sekarang, beda cerita."</p><p class="vt"><b>Visual</b> Split screen jadul vs sekarang. &nbsp;·&nbsp; <b>Teks</b> Zaman papi mami vs zaman anak</p></div>
+        <div class="beat"><span class="bt">konteks — kreator</span><p class="vo">"Sekarang di grup ortu, yang dibahas udah Mandarin. Bukan ikut-ikutan: anak-anak ini nanti kerja bareng dunia yang banyak ngomong Mandarin."</p><p class="vt"><b>Visual</b> Kreator to-camera. &nbsp;·&nbsp; <b>Teks</b> Yang dibahas di grup ortu sekarang</p></div>
+        <div class="beat"><span class="bt">bukti — chat ortu asli</span><p class="vo">"Salah satu mama murid kami cerita: anaknya sekarang malah yang duluan ngajarin dia kata-kata Mandarin di rumah."</p><p class="vt"><b>Visual</b> Screenshot chat testimoni ortu asli dari folder testimoni, nama &amp; nomor diblur. &nbsp;·&nbsp; <b>Teks</b> Chat asli ortu murid GM Mandarin</p></div>
+        <div class="beat"><span class="bt">proses — klip kelas</span><p class="vo">"Mulai dari nol, kelas online lewat Zoom, bareng guru bersertifikat HSK 5."</p><p class="vt"><b>Visual</b> Klip kelas anak asli. &nbsp;·&nbsp; <b>Teks</b> Pemula dari nol · online via Zoom</p></div>
+        <div class="beat"><span class="bt">end card</span><p class="vo">"Mau lihat anak papi mami cocok atau nggak? Coba satu sesi, gratis."</p><p class="vt"><b>Visual</b> Logo GM Mandarin + tombol. &nbsp;·&nbsp; <b>Teks</b> Coba 1 sesi gratis</p></div>
+        <div class="ctaline"><span class="cta">Coba 1 sesi gratis →</span><span class="ctan">Setelah klik: form trial di LP kebuka (gmmandarin.id/kelas-anak-form), tim GM Mandarin hubungi via WA buat cek level &amp; jadwal trial.</span></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb3" style="--lc:var(--L4)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">HARDSELL · 04 <span class="ltag">P2 × A3 · skill kedua setelah Inggris</span></div>
+        <div class="stitle">Udah lancar Inggris? Ini skill keduanya.</div>
+        <div class="sdesc">Hook pakai klip murid GM Mandarin asli lagi ngomong Mandarin di kelas (izin wajah udah oke). Kreator masuk jelasin kenapa Mandarin jadi skill kedua yang natural. Satu-satunya video yang nampilin harga.</div>
+        <div class="metaline">Style: <b>Testimonial murid (klip asli) + Full talking</b> · meat-format: Demonstration · Target ~30–40 dtk · File: <b>__OKT_VID_L4_SkillKeduaSetelahInggris</b></div>
+        <div class="msg"><b>Message:</b> Buat anak yang udah biasa belajar bahasa, Mandarin itu langkah berikutnya, dan harganya masuk akal.</div>
+        <div class="coverref" style="margin-top:16px;display:flex"><div class="rlab">Referensi format</div><a href="https://www.facebook.com/ads/library/?id=3572969752867277" target="_blank">Aixue — Jericho, murid ngenalin diri pakai Mandarin ↗</a><p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)"><b>Tiru:</b> 3 detik pertama langsung anak ngomong Mandarin + subtitle, baru masuk penjelasan + rekaman layar kelas.</p><p style="margin:2px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)"><b>Bedanya:</b> Klip murid diambil dari rekaman kelas GM (bukan syuting baru). Tanpa kode promo. Ada kartu harga Rp350rb.</p></div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Hook · 3 detik pertama</div>
+        <div class="hookg">
+          <div class="hb"><span>Visual</span><p>Klip asli murid GM Mandarin ngenalin diri / jawab guru pakai Mandarin di kelas Zoom.</p></div>
+          <div class="hb"><span>On-screen text</span><p>"Dia mulai dari nol di GM Mandarin"</p></div>
+          <div class="hb"><span>Verbal</span><p>(Suara asli murid ngomong Mandarin, tanpa VO)</p></div>
+        </div>
+        <div class="lab mt">Storyboard</div>
+        <div class="beat"><span class="bt">hook — murid asli</span><p class="vo">(Suara asli murid ngomong Mandarin)</p><p class="vt"><b>Visual</b> Klip kelas asli, wajah murid kelihatan, subtitle terjemahan. &nbsp;·&nbsp; <b>Teks</b> Dia mulai dari nol di GM Mandarin</p></div>
+        <div class="beat"><span class="bt">jembatan — kreator</span><p class="vo">"Anak udah lancar Inggris? Bagus. Banyak ortu sekarang nambah satu lagi: Mandarin."</p><p class="vt"><b>Visual</b> Kreator to-camera. &nbsp;·&nbsp; <b>Teks</b> Inggris udah. Mandarin?</p></div>
+        <div class="beat"><span class="bt">kenapa — kreator</span><p class="vo">"Kebiasaan belajar bahasanya udah kebentuk, tinggal nambah satu. Dan Mandarin makin sering dicari di dunia kerja nanti."</p><p class="vt"><b>Visual</b> Kreator to-camera, potong ke klip kelas sebentar. &nbsp;·&nbsp; <b>Teks</b> Kebiasaan udah kebentuk, tinggal nambah satu</p></div>
+        <div class="beat"><span class="bt">offer — kreator</span><p class="vo">"Kelas grup online di GM Mandarin Rp350 ribu sebulan, delapan pertemuan. Lebih murah dari sekali les privat di banyak tempat."</p><p class="vt"><b>Visual</b> Kreator + kartu harga. &nbsp;·&nbsp; <b>Teks</b> Rp350rb/bulan · 8 pertemuan</p></div>
+        <div class="beat"><span class="bt">end card</span><p class="vo">"Sebelum daftar, coba satu sesinya dulu, gratis."</p><p class="vt"><b>Visual</b> Logo GM Mandarin + tombol. &nbsp;·&nbsp; <b>Teks</b> Coba 1 sesi gratis</p></div>
+        <div class="ctaline"><span class="cta">Coba 1 sesi gratis →</span><span class="ctan">Setelah klik: form trial di LP kebuka (gmmandarin.id/kelas-anak-form), tim GM Mandarin hubungi via WA buat cek level &amp; jadwal trial.</span></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb4" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">HARDSELL · 05 <span class="ltag">P3 × A5 · bekal dulu vs sekarang</span></div>
+        <div class="stitle">Bekal anak: zaman dulu vs zaman sekarang</div>
+        <div class="sdesc">Kreator di-clone jadi dua versi (baju beda) + 3 kartu perbandingan ❌/✅ yang kebaca kurang dari 1 detik, ditutup bukti kelas asli. Format Panda Mandarin ref A, dibawa ke angle investasi skill.</div>
+        <div class="metaline">Style: <b>Split-screen kreator + kartu ❌/✅</b> · meat-format: Faceless/Education · Target ~30–40 dtk · File: <b>__OKT_VID_L3_BekalDuluVsSekarang</b></div>
+        <div class="msg"><b>Message:</b> Investasi skill anak yang paling ringan itu yang dimulai lebih awal.</div>
+        <div class="coverref" style="margin-top:16px;display:flex"><div class="rlab">Referensi format</div><a href="https://www.instagram.com/p/Dbp_Gc_Pk3e/" target="_blank">Panda Mandarin — split-screen ❌ KAKU / ✅ EXPERT ↗</a><p style="margin:4px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)"><b>Tiru:</b> Talent di-clone 2 versi (beda warna kaos), label pill di atas kepala, 3 pasang kartu yang kebaca &lt;1 detik.</p><p style="margin:2px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)"><b>Bedanya:</b> Isi kartu soal bekal masa depan, bukan frasa Mandarin. Ditutup klip kelas asli + ajakan trial (Panda pakai ajakan komen).</p></div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Hook · 3 detik pertama</div>
+        <div class="hookg">
+          <div class="hb"><span>Visual</span><p>Kreator split-screen dua versi: kiri kaos abu "ZAMAN DULU", kanan kaos putih "ZAMAN SEKARANG".</p></div>
+          <div class="hb"><span>On-screen text</span><p>"Bekal anak: dulu vs sekarang"</p></div>
+          <div class="hb"><span>Verbal</span><p>"Bekal anak zaman papi mami vs zaman sekarang. Bedanya jauh."</p></div>
+        </div>
+        <div class="lab mt">Storyboard</div>
+        <div class="beat"><span class="bt">hook — split</span><p class="vo">"Bekal anak zaman papi mami vs zaman sekarang. Bedanya jauh."</p><p class="vt"><b>Visual</b> Split-screen kreator dua versi. &nbsp;·&nbsp; <b>Teks</b> Bekal anak: dulu vs sekarang</p></div>
+        <div class="beat"><span class="bt">kartu 1</span><p class="vo">"Les tambahan: dulu Inggris aja udah keren. Sekarang, Inggris plus Mandarin."</p><p class="vt"><b>Visual</b> Kartu ✕ ZAMAN DULU / ✓ ZAMAN SEKARANG. &nbsp;·&nbsp; <b>Teks</b> Inggris aja ✕ · Inggris + Mandarin ✓</p></div>
+        <div class="beat"><span class="bt">kartu 2</span><p class="vo">"Kerja nanti: dulu cari kerja di kota sendiri. Sekarang kerja bareng perusahaan dan klien lintas negara."</p><p class="vt"><b>Visual</b> Kartu kedua, swipe transition. &nbsp;·&nbsp; <b>Teks</b> Kota sendiri ✕ · Lintas negara ✓</p></div>
+        <div class="beat"><span class="bt">kartu 3 + bukti</span><p class="vo">"Mulai belajar: dulu pas butuh baru kursus. Sekarang mulai dari SD, santai. Kayak di kelas online anak GM Mandarin."</p><p class="vt"><b>Visual</b> Kartu ketiga → cut ke klip kelas asli. &nbsp;·&nbsp; <b>Teks</b> Pas butuh ✕ · Dari SD ✓</p></div>
+        <div class="beat"><span class="bt">end card</span><p class="vo">"Mulai investasinya dari satu sesi gratis."</p><p class="vt"><b>Visual</b> Logo GM Mandarin + tombol. &nbsp;·&nbsp; <b>Teks</b> Coba 1 sesi gratis</p></div>
+        <div class="ctaline"><span class="cta">Coba 1 sesi gratis →</span><span class="ctan">Setelah klik: form trial di LP kebuka (gmmandarin.id/kelas-anak-form), tim GM Mandarin hubungi via WA buat cek level &amp; jadwal trial.</span></div>
+      </div></div>
+    </div></div>
+  </section>
+
+</div>
+
+<div class="dots" id="dots"></div>
+
+<script>
+(function(){
+  var panels=document.querySelectorAll('.panel');var dotsEl=document.getElementById('dots');var dots=[];
+  panels.forEach(function(p,i){var b=document.createElement('button');b.className='dot'+(i===0?' on':'');b.title=p.id;
+    b.addEventListener('click',function(){p.scrollIntoView({behavior:'smooth'});});dotsEl.appendChild(b);dots.push(b);});
+  var ob=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){var idx=[].indexOf.call(panels,x.target);dots.forEach(function(d,i){d.classList.toggle('on',i===idx);});}})},{root:document.getElementById('deck'),threshold:.5});
+  panels.forEach(function(p){ob.observe(p);});
+})();
+</script>
+
+</body></html>
