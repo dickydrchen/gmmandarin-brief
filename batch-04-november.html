@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GM Mandarin — Skrip Video Batch November</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--brand:#123A73;--deep:#0A2650;--azure:#1E86C9;--gold:#A9781A;--goldbg:#FBF4DE;--bg:#F4F8FC;--card:#FFFFFF;--ink:#39445A;--gray:#7B8798;--line:#E4EBF3;
+        --L3:#1D9E75;--L4:#378ADD;--ORG:#6B5CA5}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--brand)}
+  .deck{height:100vh;overflow-y:scroll;scroll-behavior:smooth}
+  .panel{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:48px 72px;position:relative}
+  .inner{width:100%;max-width:1400px;margin:0 auto}
+  .split{display:flex;gap:60px;align-items:center}
+  .sinfo{width:400px;flex-shrink:0}
+  .sview{flex:1;min-width:0}
+  .snum{font-size:16px;font-weight:900;color:var(--brand);letter-spacing:.12em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .ltag{font-size:12px;font-weight:800;padding:3px 11px;border-radius:999px;background:color-mix(in srgb,var(--lc) 14%,#fff);color:var(--lc);letter-spacing:.02em}
+  .stitle{font-size:36px;font-weight:900;margin:12px 0 16px;line-height:1.1;letter-spacing:-.01em;color:var(--deep)}
+  .sdesc{font-size:18px;color:var(--ink);line-height:1.6}
+  .sdesc b{color:var(--brand);font-weight:700}
+  .metaline{font-size:15px;color:var(--gray);font-weight:600;margin-top:14px}
+  .metaline b{color:var(--deep)}
+  .coverref{position:relative;z-index:2;margin-top:26px;background:#F1D48A;border-radius:14px;padding:16px 22px;display:inline-flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;max-width:920px}
+  .coverref .rlab{width:100%;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--deep);margin-bottom:2px}
+  .coverref a{font-size:14px;color:var(--deep);font-weight:800;text-decoration:underline}
+  .coverref a:hover{color:var(--brand)}
+  .msg{margin-top:18px;background:var(--goldbg);border:1px solid #E9D9B4;border-radius:14px;padding:15px 18px;font-size:15px;line-height:1.55;color:var(--ink)}
+  .msg b{color:var(--gold);font-weight:800}
+  .briefcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 28px;box-shadow:0 16px 44px rgba(18,58,115,.09)}
+  .lab{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin:0 0 10px}
+  .lab.mt{margin-top:20px}
+  .hookg{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+  .hb{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 13px}
+  .hb span{font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:5px}
+  .hb p{font-size:14px;line-height:1.4;color:var(--deep);font-weight:600;margin:0}
+  .beat{padding:11px 0;border-top:1px solid var(--line)}
+  .beat:first-of-type{border-top:0;padding-top:2px}
+  .bt{font-size:11px;font-weight:800;color:var(--lc);background:color-mix(in srgb,var(--lc) 13%,#fff);border-radius:999px;padding:3px 11px;display:inline-block;margin-bottom:8px;text-transform:uppercase;letter-spacing:.03em}
+  .vo{font-size:15px;line-height:1.5;color:var(--ink);margin:0 0 5px;font-weight:500}
+  .vt{font-size:12.5px;line-height:1.5;color:var(--gray);margin:0}
+  .vt b{color:var(--deep);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.03em}
+  .cmp{display:flex;gap:10px;margin:8px 0 4px}
+  .cmpcol{flex:1;border-radius:10px;padding:10px 12px}
+  .cmpcol.bad{background:#FDEEEE;border:1px solid #F3C7C7}
+  .cmpcol.good{background:#EAF7F0;border:1px solid #BEE7D3}
+  .cmpcol .ic{font-size:13px;font-weight:900;letter-spacing:.03em}
+  .cmpcol.bad .ic{color:#C0392B}
+  .cmpcol.good .ic{color:#1D9E75}
+  .cmpcol p{font-size:13px;color:var(--ink);line-height:1.4;margin-top:5px;font-weight:600}
+  .ctaline{margin-top:20px;padding-top:16px;border-top:2px dashed var(--line);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .cta{display:inline-flex;align-items:center;gap:6px;background:var(--azure);color:#fff;font-size:15px;font-weight:800;padding:11px 20px;border-radius:11px}
+  .ctan{font-size:13.5px;color:var(--gray);flex:1;min-width:160px}
+  .noCta{display:inline-flex;align-items:center;gap:6px;background:#EEF1F6;color:var(--gray);font-size:13.5px;font-weight:700;padding:9px 16px;border-radius:11px;border:1px dashed #C9D3E0}
+  .cover{background:linear-gradient(125deg,#0A2650 0%,#123A73 48%,#1E86C9 100%);color:#fff;overflow:hidden}
+  .cover::after{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;background:#E0A93A;opacity:.9;transform:rotate(45deg)}
+  .cover::before{content:"";position:absolute;left:-120px;bottom:-150px;width:360px;height:360px;border:34px solid rgba(255,255,255,.08);border-radius:50%}
+  .ckick{font-size:18px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#F1D48A;position:relative;z-index:2}
+  .ctitle{font-size:64px;font-weight:900;line-height:1.08;margin:16px 0 12px;position:relative;z-index:2;letter-spacing:-.02em}
+  .cperiod{font-size:25px;font-weight:700;color:#DCEAF9;position:relative;z-index:2}
+  .cmeta{font-size:16px;color:#B9D2ED;margin-top:20px;position:relative;z-index:2;line-height:1.5}
+  .cbadges{position:relative;z-index:2;margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+  .cbadge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:9px 18px;font-size:14px;font-weight:600;color:#fff}
+  .cscroll{position:absolute;bottom:40px;left:72px;font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F1D48A;display:flex;align-items:center;gap:12px;z-index:2}
+  .cscroll .arw{width:24px;height:24px;border-right:3px solid #F1D48A;border-bottom:3px solid #F1D48A;transform:rotate(45deg);animation:bounce 1.5s infinite}
+  @keyframes bounce{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(5px,5px)}}
+  .dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:60}
+  .dot{width:12px;height:12px;border-radius:50%;background:#C9D8EA;border:none;cursor:pointer;transition:.2s;padding:0}
+  .dot:hover{background:#7FA6CE;transform:scale(1.2)}
+  .dot.on{background:var(--brand);transform:scale(1.35)}
+  .hbank{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .hbank .hb p{font-weight:500;margin-top:4px}
+  .hbank .hb .vt{margin-top:6px}
+  .dos{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.6;color:var(--ink)}
+  .dos b{color:var(--deep);font-size:12px;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px}
+  .scn{padding:14px 0;border-top:1px solid var(--line)}
+  .scn:first-of-type{border-top:0;padding-top:2px}
+  .row{display:grid;grid-template-columns:120px 1fr;gap:10px;margin-top:6px;font-size:14px;line-height:1.5}
+  .row .k{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--gray);padding-top:2px}
+  .row ul{margin:0;padding-left:18px;color:var(--ink)}
+  .row li{margin:2px 0}
+  .row .say{color:var(--deep);font-weight:600}
+  .row .txt{color:var(--azure);font-weight:700}
+  @media(max-width:960px){
+    .row{grid-template-columns:1fr;gap:2px}
+    .hbank{grid-template-columns:1fr}
+    .panel{padding:30px 22px}
+    .split{flex-direction:column;gap:26px;align-items:stretch}
+    .sinfo{width:100%}
+    .ctitle{font-size:29px}
+    .stitle{font-size:22px}
+    .sdesc{font-size:15px}
+    .hookg{grid-template-columns:1fr}
+    .cmp{flex-direction:column}
+    .coverref{flex-direction:column;gap:8px}
+    .cscroll{left:22px}
+    .dots{display:none}
+    .cover::after,.cover::before{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <section class="panel cover" id="p0">
+    <div class="inner">
+      <div class="ckick">GM Mandarin · Skrip Video</div>
+      <div class="ctitle">Batch November — Kelas Mandarin Anak</div>
+      <div class="cperiod">5 video · vertikal 9:16 · ±30–40 detik per video</div>
+      <div class="cmeta">Sasaran penonton: papi mami yang anaknya udah les / lancar bahasa Inggris</div>
+      <div class="cbadges">
+        <div class="cbadge">Sapaan ke penonton: "papi mami"</div>
+        <div class="cbadge">Sebut brand: "GM Mandarin" (jangan "Guang Ming")</div>
+        <div class="cbadge">Nada santai kayak ngobrol, bukan baca iklan</div>
+        <div class="cbadge">Kamu narator, jangan ngaku punya anak atau jadi ortu murid</div>
+        <div class="cbadge">Video 02–05: kamu rekam &amp; edit sendiri di iPhone (CapCut) · Video 01: cukup rekam, diedit tim</div>
+      </div>
+      <div class="coverref" style="margin-bottom:14px">
+        <div class="rlab">Aset buat edit (download ke iPhone)</div>
+        <a href="https://drive.google.com/drive/folders/1rAYEM8dKtJjU7BKz-06-ZL6YK3HBnqAu" target="_blank">Klip rekaman kelas Zoom (Clip1–5) ↗</a>
+        <a href="https://drive.google.com/file/d/1dNrtl4RPTXtd4PpmHvqaOJnRyqNPSkeJ/view" target="_blank">Logo GM Mandarin (PNG) ↗</a>
+        <p style="margin:6px 0 0;font-size:13.5px;line-height:1.5;color:var(--deep)">Di klip kelas ada nama akun Zoom lama: tutup pakai stiker / efek blur di CapCut.</p>
+      </div><br>
+      <div class="coverref" style="margin-bottom:14px">
+        <div class="rlab">Siapa yang nonton</div>
+        <p style="margin:0;font-size:14px;font-weight:700;color:var(--deep);line-height:1.5">Papi mami usia 30–45 yang anaknya SD dan udah bertahun-tahun les Inggris. Lagi mikir "abis ini apa ya?", pengen anaknya punya bekal tambahan, tapi takut anaknya capek, pusing antar-jemput, dan mikirin biaya les yang udah jalan. Ngomongnya ke mereka kayak sesama ortu ngobrol di grup sekolah.</p>
+      </div><br>
+      <div class="coverref">
+        <div class="rlab">Cara pakai</div>
+        <p style="margin:0;font-size:14px;font-weight:700;color:var(--deep)">Tiap halaman = 1 video. Kolom kiri: cara rekam &amp; yang perlu diperhatikan. Kolom kanan: kalimat per scene, urut dari atas ke bawah. Kalimat boleh disesuaikan sedikit biar natural, isinya jangan diubah.</p>
+      </div>
+    </div>
+    <div class="cscroll">Scroll <span class="arw"></span></div>
+  </section>
+
+  <section class="panel brief" id="pb0" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">VIDEO · 01</div>
+        <div class="stitle">6 kalimat pembuka</div>
+        <div class="sdesc">Rekam 6 pembuka pendek (±3 detik masing-masing). Tim editor akan nyambungin tiap pembuka ke video Oktober kamu (&quot;Inggris udah, tambah satu: Mandarin&quot;), jadi lanjutannya nggak perlu direkam ulang.</div>
+        <div class="msg"><b>Cara rekam:</b> Setting, baju, dan gaya sama kayak video Oktober (tirai gelap, kaos putih garis, pegang iPad). Rekam tiap pembuka 2–3 kali.</div>
+        <div class="dos"><b>Perhatikan</b>• Tiap pembuka maksimal 1–2 kalimat, langsung to the point<br>• Mulai ngomong di frame pertama, jangan ada jeda di awal<br>• Ngomongnya kayak ngobrol sama sesama ortu, bukan baca iklan<br></div>
+
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Rekam satu-satu</div>
+        <div class="scn"><span class="bt">Pembuka 1</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Anak yang udah jago Inggris tuh justru paling gampang belajar Mandarin, lho.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium shot, kamu berdiri depan tirai, pegang iPad</li><li>Nada yakin, sedikit maju ke kamera di kata &quot;justru&quot;</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Anaknya udah jago Inggris?</span></div></div>
+        <div class="scn"><span class="bt">Pembuka 2</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Udah jago Inggris, terus lanjut belajar apa? Banyak yang ke sini.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Close-up tangan nutup buku bahasa Inggris di meja</li><li>Tangan buka buku bergambar tulisan Mandarin</li><li>Kamera naik ke wajah kamu di akhir kalimat</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Habis Inggris, lanjut apa?</span></div></div>
+        <div class="scn"><span class="bt">Pembuka 3</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Les Inggris udah bertahun-tahun. Masa berhenti di situ aja?&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium close-up, kamu nunjuk ke kamera</li><li>Ekspresi nanya, alis naik di kata &quot;berhenti&quot;</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Masa berhenti di Inggris aja?</span></div></div>
+        <div class="scn"><span class="bt">Pembuka 4</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Tiga ratus lima puluh ribu sebulan. Ini yang anak dapet.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Kamu pegang kartu bertuliskan &quot;Rp350 rb / bulan&quot; di depan dada</li><li>Kartu agak didekatkan ke kamera waktu nyebut angkanya</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Rp350 rb sebulan, dapet apa aja?</span></div></div>
+        <div class="scn"><span class="bt">Pembuka 5</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Anaknya udah jago Inggris? Coba dengerin anak ini ngomong Mandarin.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Kamu pegang HP, layar menghadap kamu</li><li>Ekspresi kaget kecil, terus nyodorin HP ke kamera</li><li>Editor lanjut ke klip murid ngomong Mandarin</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Dengerin ini dulu</span></div></div>
+        <div class="scn"><span class="bt">Pembuka 6</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Anaknya udah jago Inggris. Sepuluh tahun lagi, itu udah standar. Bekal tambahannya apa?&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium close-up, kamu to-camera</li><li>Nada serius tapi santai, jeda sebentar sebelum &quot;bekal tambahannya apa?&quot;</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">10 tahun lagi, jago Inggris udah standar</span></div></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb1" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">VIDEO · 02</div>
+        <div class="stitle">Mandarin ternyata nggak seseram itu</div>
+        <div class="sdesc">Kamu ngobrol ke kamera kenapa anak yang udah bisa baca bahasa Inggris nggak perlu takut mulai Mandarin. Tulisannya kamu tambahin sendiri di CapCut, jadi nggak perlu papan tulis.</div>
+        <div class="msg"><b>Cara rekam:</b> Rekam to-camera, posisi kamu agak ke kiri frame (sisakan ruang kosong di kanan buat tulisan). Tiap kali ada tulisan, kamu cukup nunjuk ke ruang kosong itu.</div>
+        <div class="dos"><b>Perhatikan</b>• Nggak perlu nulis di kertas, semua tulisan ditambah di CapCut<br>• Tahan jari nunjuk ±1 detik biar gampang naruh tulisan pas edit<br>• Jangan bilang Mandarin &quot;gampang banget&quot;, cukup &quot;nggak seseram itu&quot;<br></div>
+        <div class="dos"><b>Pas edit di CapCut</b>• Teks &quot;nǐ hǎo = halo&quot; &amp; &quot;māo = kucing&quot; muncul pas kamu nunjuk ke kanan<br>• Klip kelas cukup 1 potong di Scene 5<br></div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Skrip per scene</div>
+        <div class="scn"><span class="bt">Scene 1</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Anaknya udah jago Inggris? Mandarin justru lebih gampang buat dia. Lihat ini.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Close-up wajah kamu, langsung ngomong di frame pertama</li><li>Di kata &quot;lihat ini&quot;, kamu nunjuk ke ruang kosong di kanan</li><li>Di CapCut: tambah teks besar &quot;nǐ hǎo&quot; di titik yang kamu tunjuk</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Udah jago Inggris? Mandarin justru lebih gampang</span></div></div>
+        <div class="scn"><span class="bt">Scene 2</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Kebanyakan papi mami mikir, Mandarin itu susah. Hurufnya kayak gambar, harus hafal ribuan.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Close-up wajah, ekspresi ikut ngerasain bingungnya</li><li>Di CapCut: tambah teks huruf Mandarin di sekitar kamu (copy dari sini):<ul><li>你好</li><li>汉字</li><li>学习</li><li>中文</li></ul></li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Harus hafal ribuan huruf?</span></div></div>
+        <div class="scn"><span class="bt">Scene 3</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Akhirnya ditunda-tunda. Eh, tau-tau anaknya udah SMP, PR-nya numpuk, makin males mulai.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium shot, nada lebih serius</li><li>Gestur tangan numpuk ke atas di kata &quot;numpuk&quot;</li></ul></div></div>
+        <div class="scn"><span class="bt">Scene 4</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Padahal awalnya pakai abjad A sampai Z yang udah dia kenal. Nanti pas gede, yang bisa Inggris plus Mandarin itu jarang.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium shot, kamu di kiri frame, nunjuk ke kanan</li><li>Di CapCut: tambah 2 teks bergantian:<ul><li>nǐ hǎo = halo</li><li>māo = kucing</li></ul></li><li>Di kalimat kedua, kamu balik ke kamera</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Mulainya pakai abjad yang udah dia kenal</span></div></div>
+        <div class="scn"><span class="bt">Scene 5</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Di GM Mandarin, anaknya mulai dari nol dan tiap kelas pasti diajak ngomong. Udah 500 lebih anak belajar di sini.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Kamu to-camera, senyum</li><li>Sisipin klip kelas dari folder Aset (±3 detik), pilih bagian murid jawab guru</li><li>Di CapCut: 3 teks muncul satu-satu:<ul><li>✓ Mulai dari nol</li><li>✓ Tiap kelas diajak ngomong</li><li>✓ 500+ anak udah belajar</li></ul></li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">500+ anak udah belajar di sini</span></div></div>
+        <div class="scn"><span class="bt">Scene 6</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Tiga ratus lima puluh ribu sebulan, delapan kali pertemuan. Mau coba dulu? Kelas pertamanya gratis.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium shot, senyum, nunjuk ke bawah (ke arah tombol iklan)</li><li>Penutup ±2 detik: logo GM Mandarin (dari folder Aset) + teks &quot;Kelas pertama gratis&quot;</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Kelas pertama gratis</span></div></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb2" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">VIDEO · 03</div>
+        <div class="stitle">Les Inggris udah 4 tahun. Abis ini apa?</div>
+        <div class="sdesc">Video cerita: kamu jadi narator yang nyuarain kebingungan papi mami setelah anaknya jago Inggris.</div>
+        <div class="msg"><b>Cara rekam:</b> Props: tumpukan buku les bahasa Inggris (level 1–6, sampul tanpa merek) di meja belajar. Cahaya sore / natural dari jendela.</div>
+        <div class="dos"><b>Perhatikan</b>• Jangan bilang &quot;anakku&quot;, kamu narator<br>• Nada hangat, kayak lagi curhat sama temen<br>• Merek buku jangan kelihatan (tutup atau balik sampulnya)<br></div>
+        <div class="dos"><b>Pas edit di CapCut</b>• Teks Scene 3 dua bagian, muncul bergantian ikut gestur tangan kamu<br>• Klip kelas cukup 1 potong di Scene 5<br></div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Skrip per scene</div>
+        <div class="scn"><span class="bt">Scene 1</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Empat tahun les Inggris. Terus udahan gitu aja?&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Close-up tangan kamu naruh buku terakhir di atas tumpukan, agak dihentak</li><li>Langsung potong ke wajah kamu yang nanya ke kamera</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">4 tahun les Inggris. Udahan gitu aja?</span></div></div>
+        <div class="scn"><span class="bt">Scene 2</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Ini yang sering banget ditanyain papi mami ke kami.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium shot, kamu duduk di samping tumpukan buku</li><li>Ngomong ke kamera, nada santai</li></ul></div></div>
+        <div class="scn"><span class="bt">Scene 3</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Mau nambah les, kasian anaknya, takut capek. Mau udahan, sayang. Anaknya udah rajin belajar.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium shot, dua tangan kayak nimbang (kiri: nambah, kanan: udahan)</li><li>Ekspresi bingung di tiap pilihan</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Nambah les? Kasian. Udahan? Sayang.</span></div></div>
+        <div class="scn"><span class="bt">Scene 4</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Banyak yang akhirnya nambah Mandarin. Soalnya nanti, yang bisa Inggris banyak. Yang bisa Mandarin jarang.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Close-up wajah, ekspresi kayak baru nemu jawaban</li><li>Sisipan (opsional): laptop terbuka di meja yang sama</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Yang bisa Inggris banyak. Yang bisa Mandarin jarang.</span></div></div>
+        <div class="scn"><span class="bt">Scene 5</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Di GM Mandarin, kelasnya kecil, jadi tiap anak keurus dan kelihatan progresnya. Udah 500 lebih anak belajar di sini.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Kamu to-camera, senyum</li><li>Sisipin klip kelas dari folder Aset (±3 detik), pilih bagian anak jawab guru</li><li>Di CapCut: 3 teks muncul satu-satu:<ul><li>✓ Kelas kecil</li><li>✓ Tiap anak keurus</li><li>✓ 500+ anak udah belajar</li></ul></li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Kelas kecil, tiap anak keurus</span></div></div>
+        <div class="scn"><span class="bt">Scene 6</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Tiga ratus lima puluh ribu sebulan. Sebelum daftar, cobain dulu kelas pertamanya, gratis.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium shot, senyum, tangan nunjuk ke bawah</li><li>Penutup ±2 detik: logo GM Mandarin (dari folder Aset) + teks &quot;Kelas pertama gratis&quot;</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Kelas pertama gratis</span></div></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb3" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">VIDEO · 04</div>
+        <div class="stitle">Udah bayar les Inggris. Nambah Mandarin, mahal nggak?</div>
+        <div class="sdesc">Video tanpa wajah: tangan + HP kalkulator + suara kamu.</div>
+        <div class="msg"><b>Cara rekam:</b> Rekam close-up tangan di meja (kamera dari atas atau agak miring). Suara direkam terpisah di ruangan tenang, jelas, tanpa gema.</div>
+        <div class="dos"><b>Perhatikan</b>• Nama tempat les di kuitansi ditutup atau diblur<br>• Jangan sebut nama tempat les atau harga les lain<br>• Angka diucapkan pelan dan jelas<br></div>
+        <div class="dos"><b>Pas edit di CapCut</b>• Rekam suara dulu (Voice Memo / langsung di CapCut), terus susun potongan video tangan ngikutin suara<br>• Angka kalkulator di Scene 1 ditutup stiker, baru kelihatan di Scene 5<br></div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Skrip per scene</div>
+        <div class="scn"><span class="bt">Scene 1</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Les Inggris udah jalan. Nambah Mandarin buat bahasa keduanya, sekali kelas cuma segini.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Close-up jari ngetik di kalkulator HP</li><li>Di CapCut: tutup angka hasilnya pakai stiker (dibuka di Scene 5)</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Bahasa kedua anak, sekali kelas cuma…</span></div></div>
+        <div class="scn"><span class="bt">Scene 2</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Anaknya udah jago Inggris. Pengennya sih nambah satu bahasa lagi.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Close-up buku tulis bahasa Inggris anak, tulisan tangan rapi</li><li>Tangan buka halaman yang penuh nilai bagus</li></ul></div></div>
+        <div class="scn"><span class="bt">Scene 3</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Tapi bayar les Inggris kan jalan terus. Nambah satu lagi kebayang berat. Apalagi kalau les privat, plus capek antar-jemput.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Tangan buka dompet, lihat isinya</li><li>Pindah ke HP: kalender penuh jadwal antar-jemput</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Biaya nambah, capek nambah</span></div></div>
+        <div class="scn"><span class="bt">Scene 4</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Padahal nggak harus privat. Belajar bareng online jauh lebih hemat, dan buat bekal anak nanti, nilainya beda.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Tangan buka laptop di meja yang sama</li><li>Layar laptop nyala</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Inggris + Mandarin, nilainya beda</span></div></div>
+        <div class="scn"><span class="bt">Scene 5</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Di GM Mandarin, delapan kali kelas sebulan cuma tiga ratus lima puluh ribu. Sekali kelas sekitar empat puluh tiga ribu, dan tiap kelas anaknya tetap kebagian ngomong.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Close-up jari ngetik 350.000 ÷ 8 di kalkulator HP, stiker penutup angka dibuka</li><li>Hasil 43.750 ditahan ±1 detik</li><li>Sisipin klip kelas dari folder Aset (±3 detik)</li><li>Di CapCut: 3 teks muncul satu-satu:<ul><li>✓ 8x kelas sebulan</li><li>✓ Dari rumah, tanpa antar-jemput</li><li>✓ Tiap kelas kebagian ngomong</li></ul></li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Sekali kelas ±Rp43 ribu</span></div></div>
+        <div class="scn"><span class="bt">Scene 6</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Belum yakin? Cobain dulu kelas pertamanya, gratis.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>HP ditaruh di meja, tangan kasih jempol</li><li>Penutup ±2 detik: logo GM Mandarin (dari folder Aset) + teks &quot;Kelas pertama gratis&quot;</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Kelas pertama gratis</span></div></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <section class="panel brief" id="pb4" style="--lc:var(--L3)">
+    <div class="inner"><div class="split">
+      <div class="sinfo">
+        <div class="snum">VIDEO · 05</div>
+        <div class="stitle">Inggris udah tiap Senin. Mandarin kapan?</div>
+        <div class="sdesc">Kamu nunjukin jadwal les anak di kalender HP, terus ngobrol ke kamera.</div>
+        <div class="msg"><b>Cara rekam:</b> Siapin kalender HP dengan isi contoh (&quot;Senin · Les Inggris&quot;, &quot;Selasa · Renang&quot;). Rekam layar kalender + rekaman kamu to-camera.</div>
+        <div class="dos"><b>Perhatikan</b>• Sebut jadwal &quot;sore sampai malam&quot;, jangan jam tertentu<br>• Intinya ngajak nambah Mandarin, jadwal cuma pelengkap<br>• Notifikasi HP dimatikan sebelum rekam layar<br></div>
+        <div class="dos"><b>Pas edit di CapCut</b>• Rekam layar pakai fitur Rekam Layar iPhone (geser Control Center)<br>• Klip kelas cukup 1 potong di Scene 5<br></div>
+      </div>
+      <div class="sview"><div class="briefcard">
+        <div class="lab">Skrip per scene</div>
+        <div class="scn"><span class="bt">Scene 1</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Senin les Inggris. Selasa renang. Mandarinnya kapan?&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Rekam layar kalender HP: jari tap &quot;Senin · Les Inggris&quot;, lalu &quot;Selasa · Renang&quot;</li><li>Berhenti di hari Rabu yang masih kosong</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Mandarinnya kapan?</span></div></div>
+        <div class="scn"><span class="bt">Scene 2</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Anaknya udah jago Inggris. Banyak papi mami yang udah kepikiran nambah Mandarin.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium shot, kamu pegang HP, noleh ke kamera</li></ul></div></div>
+        <div class="scn"><span class="bt">Scene 3</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Tapi ditunda mulu. Sore udah penuh les, antar-jemput repot. Tahun depan pelajaran sekolah makin banyak.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Rekam layar kalender di-scroll, sore-sore penuh jadwal</li><li>Pindah ke kamu, ekspresi capek</li></ul></div></div>
+        <div class="scn"><span class="bt">Scene 4</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Padahal anaknya udah biasa belajar bahasa. Tinggal cari kelas yang bisa dari rumah, buat bekal dia nanti.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Close-up wajah, ekspresi lega</li><li>Gestur tangan terbuka, kayak bilang &quot;simpel kok&quot;</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Inggris + Mandarin = bekal yang jarang</span></div></div>
+        <div class="scn"><span class="bt">Scene 5</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Di GM Mandarin, kelasnya online dari rumah, ada jam sore sampai malam, dan kelasnya kecil jadi tiap anak keurus.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Rekam layar: kamu ngetik &quot;Rabu · Mandarin&quot; di kalender, kasih centang</li><li>Sisipin klip kelas dari folder Aset (±3 detik)</li><li>Di CapCut: 3 teks muncul satu-satu:<ul><li>✓ Dari rumah</li><li>✓ Sore sampai malam</li><li>✓ Tiap anak keurus</li></ul></li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Inggris ✓ Mandarin ✓</span></div></div>
+        <div class="scn"><span class="bt">Scene 6</span><div class="row"><span class="k">Diucapkan</span><span class="say">&quot;Tiga ratus lima puluh ribu sebulan, delapan kali pertemuan. Cobain dulu kelas pertamanya, gratis.&quot;</span></div><div class="row"><span class="k">Footage</span><ul><li>Medium shot, senyum, nunjuk ke bawah</li><li>Penutup ±2 detik: logo GM Mandarin (dari folder Aset) + teks &quot;Kelas pertama gratis&quot;</li></ul></div><div class="row"><span class="k">Teks di layar</span><span class="txt">Kelas pertama gratis</span></div></div>
+      </div></div>
+    </div></div>
+  </section>
+
+</div>
+
+<div class="dots" id="dots"></div>
+
+<script>
+(function(){
+  var panels=document.querySelectorAll('.panel');var dotsEl=document.getElementById('dots');var dots=[];
+  panels.forEach(function(p,i){var b=document.createElement('button');b.className='dot'+(i===0?' on':'');b.title=p.id;
+    b.addEventListener('click',function(){p.scrollIntoView({behavior:'smooth'});});dotsEl.appendChild(b);dots.push(b);});
+  var ob=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){var idx=[].indexOf.call(panels,x.target);dots.forEach(function(d,i){d.classList.toggle('on',i===idx);});}})},{root:document.getElementById('deck'),threshold:.5});
+  panels.forEach(function(p){ob.observe(p);});
+})();
+</script>
+
+</body></html>
